@@ -1,2 +1,2 @@
 # PCAP-Threat-Detection
-PCAP Threat Detection using Splunk 
+Suricata-Powered PCAP Threat Detection in Splunk
