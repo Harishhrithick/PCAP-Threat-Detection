@@ -1,0 +1,7 @@
+Step:1 Open Splunk -> Go to Settings -> ADD Source -> ingest the eve.json log file # which is a PCAP File can be extracted using Suricata. 
+
+Step 2 -> Source Type .json -> Create a New Index called pcap_suricata_logs and enter -> Review and submit 
+
+You can see the Ingested Output.
+
+  

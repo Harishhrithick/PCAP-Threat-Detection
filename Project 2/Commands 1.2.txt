@@ -1,0 +1,10 @@
+CMD Commands
+1. Create a folder called Suricata logs to store json logs Derived from the Suricata
+mkdir C:\SuricataLogs
+2. Navigate to the Suricata path 
+cd "C:\Program Files\Suricata"
+3. Add the Infected PCAP Files from the 
+C:\Program Files\Suricata>suricata.exe -r "C:\Users\rhari\Desktop\Infected PCAP\2020-12-07-Qakbot-with-Cobalt-Strike-and-spambot-activity.pcap" -l "C:\SuricataLogs"
+
+
+
