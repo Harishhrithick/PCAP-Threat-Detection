@@ -1,4 +1,4 @@
-CMD Commands
+CMD Commands to set up Suricata to parse PCAP File into the json format to ingested into Splunk.
 1. Create a folder called Suricata logs to store json logs Derived from the Suricata
 mkdir C:\SuricataLogs
 2. Navigate to the Suricata path 
