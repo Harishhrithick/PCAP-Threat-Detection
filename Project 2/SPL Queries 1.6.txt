@@ -1,7 +1,7 @@
 
-🔍 SIEM Queries for Detecting Threats in eve.json Data
+ SIEM Queries for Detecting Threats in eve.json Data
 
-✅ 1. Detect Qakbot HTTP Traffic to Suspicious Domain
+ 1. Detect Qakbot HTTP Traffic to Suspicious Domain
 Splunk (SPL):
 index=pcap_logs event_type="http"
 | search http.hostname="amajai-technologies.work"
@@ -9,7 +9,7 @@ index=pcap_logs event_type="http"
 Elastic (KQL):
 event_type:"http" AND http.hostname:"amajai-technologies.work"
 
-✅ 2. Detect Suspicious TLS Certificates with .biz CN
+ 2. Detect Suspicious TLS Certificates with .biz CN
 Splunk (SPL):
 index=pcap_logs event_type="tls"
 | search tls.subject="*biz" OR tls.issuerdn="*biz"
@@ -17,7 +17,7 @@ index=pcap_logs event_type="tls"
 Elastic (KQL):
 event_type:"tls" AND (tls.subject:*biz OR tls.issuerdn:*biz
 
-✅ 3. Detect DNS Queries to Suspicious Domains (.work, .biz)
+3. Detect DNS Queries to Suspicious Domains (.work, .biz)
 Splunk (SPL):
 index=pcap_logs event_type="dns"
 | regex dns.rrname=".*\.(work|biz)$"
@@ -25,7 +25,7 @@ index=pcap_logs event_type="dns"
 Elastic (KQL):
 event_type:"dns" AND dns.rrname:/.*\.(work|biz)$/
 
-✅ 4. Detect User-Agent Patterns Often Used by Qakbot
+ 4. Detect User-Agent Patterns Often Used by Qakbot
 Splunk (SPL):
 index=pcap_logs event_type="http"
 | search http.http_user_agent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)"
