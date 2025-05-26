@@ -1,6 +1,6 @@
-________________________________________
+
 🔍 SIEM Queries for Detecting Threats in eve.json Data
-________________________________________
+
 ✅ 1. Detect Qakbot HTTP Traffic to Suspicious Domain
 Splunk (SPL):
 index=pcap_logs event_type="http"
@@ -8,15 +8,15 @@ index=pcap_logs event_type="http"
 | table _time, src_ip, dest_ip, http.hostname, http.url, http_user_agent
 Elastic (KQL):
 event_type:"http" AND http.hostname:"amajai-technologies.work"
-________________________________________
+
 ✅ 2. Detect Suspicious TLS Certificates with .biz CN
 Splunk (SPL):
 index=pcap_logs event_type="tls"
 | search tls.subject="*biz" OR tls.issuerdn="*biz"
 | table _time, src_ip, dest_ip, tls.subject, tls.issuerdn
 Elastic (KQL):
-event_type:"tls" AND (tls.subject:*biz OR tls.issuerdn:*biz)
-________________________________________
+event_type:"tls" AND (tls.subject:*biz OR tls.issuerdn:*biz
+
 ✅ 3. Detect DNS Queries to Suspicious Domains (.work, .biz)
 Splunk (SPL):
 index=pcap_logs event_type="dns"
@@ -24,7 +24,7 @@ index=pcap_logs event_type="dns"
 | table _time, src_ip, dest_ip, dns.rrname
 Elastic (KQL):
 event_type:"dns" AND dns.rrname:/.*\.(work|biz)$/
-________________________________________
+
 ✅ 4. Detect User-Agent Patterns Often Used by Qakbot
 Splunk (SPL):
 index=pcap_logs event_type="http"
@@ -32,11 +32,9 @@ index=pcap_logs event_type="http"
 | table _time, src_ip, dest_ip, http.url
 Elastic (KQL):
 event_type:"http" AND http.http_user_agent:"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)"
-________________________________________
+
 📌 Notes:
 •	Replace index=pcap_logs with your actual index name.
 •	These queries are tested against Suricata-style logs.
-•	For Microsoft Sentinel, use Kusto Query Language (KQL) in a similar way.
-________________________________________
-Would you like me to generate a full dashboard template (Splunk XML or Kibana JSON) for visualizing these detections too?
+•	For Microsoft Sentinel, use Kusto Query Language (KQL) in a similar ways.
 
