@@ -33,8 +33,3 @@ index=pcap_logs event_type="http"
 Elastic (KQL):
 event_type:"http" AND http.http_user_agent:"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)"
 
-📌 Notes:
-•	Replace index=pcap_logs with your actual index name.
-•	These queries are tested against Suricata-style logs.
-•	For Microsoft Sentinel, use Kusto Query Language (KQL) in a similar ways.
-
